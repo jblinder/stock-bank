@@ -6,7 +6,7 @@ class Device
   Device(PApplet p)
   { 
     parent = p;
-    port = new Serial(parent, Serial.list()[0], 9600);
+    port = new Serial(parent, Serial.list()[0], 9600); // <- Gotta pass in root
   }
   
   void send() 

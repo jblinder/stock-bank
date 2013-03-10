@@ -1,6 +1,6 @@
 class Net
 {
-
+  // Net static urls
   public static final String BASE_URL = "http://justinblinder.com/dev/stockbank/stocks.php?";
   public static final String BASE_PARAM_URL = "stock[]=";
   public static final String TEST_URL = "http://justinblinder.com/dev/stockbank/stocks.php?stock[]=AAPL";
