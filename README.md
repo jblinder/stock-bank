@@ -2,7 +2,15 @@ StockBank
 =========
 ___
 ![xkcd](http://imgs.xkcd.com/comics/investing.png)
-####notes to self
+####notes
+**client** - interface, arduino communciation, stock presentation [*processing*]
+
+**server** - stock grabbing [*php*]
+
+**libs** - dependencies (install these in your processing libraries folder) [*processing*]
+
+--
+####[notes to self]
 
 
 **client**: GUI, Arduino communication.
