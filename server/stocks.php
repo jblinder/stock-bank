@@ -48,12 +48,10 @@
 	$arr = array();
 	foreach ( $_GET["stock"] as $param ) {
 		$price = getPrice($param);
-		
-		$a = array($param => $price);
-		array_push($arr, $a);
+		$datum  = array( "name"  => $param, "price" => $price);
+		array_push($arr, $datum);
 	}
-	
-	$json = json_encode($arr);
-	print $json;
+	$json = json_encode(array("stocks" => $arr));
+	echo $json;
 	
 ?> 
