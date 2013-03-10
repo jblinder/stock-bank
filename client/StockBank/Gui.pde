@@ -12,9 +12,10 @@ class Gui
  
   // Fonts
   PFont headerFont;
-  
-  Gui()
+  Controls controls;
+  Gui(PApplet p)
   {
+    controls = new Controls(p);
     //headerFont = loadFont("fonts/lateron-48.vlw");
     //textFont(headerFont, 48);
   }
@@ -25,6 +26,7 @@ class Gui
   
   void draw()
   {
+      controls.draw();
        fill(0);
        textSize(20);
        text(GUI_TITLE, 40, 60);

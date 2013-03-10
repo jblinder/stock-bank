@@ -7,6 +7,7 @@
  */
 import org.json.*;
 import processing.serial.*;
+import controlP5.*;
 
 Net net;
 Gui gui;
@@ -18,7 +19,7 @@ void setup()
   size(800, 600);
 
   net = new Net();
-  gui = new Gui();
+  gui = new Gui(this);
   profile = new Profile();
   device = new Device(this);
   

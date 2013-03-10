@@ -1,4 +1,4 @@
-class Net
+class Net implements UserInput
 {
   // Net static urls
   public static final String BASE_URL = "http://justinblinder.com/dev/stockbank/stocks.php?";
@@ -47,5 +47,11 @@ class Net
     }
     return url;
   }
+  
+  void enteredNewStocks(String[] stocks) 
+  {
+    println("FUCK");
+  }
+
 }
 
