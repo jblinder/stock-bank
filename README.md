@@ -1,13 +1,14 @@
-$tockBank
+StockBank
 =========
 ___
-
-####//notes 
+![xkcd](http://imgs.xkcd.com/comics/investing.png)
+####notes to self
 
 
 **client**: GUI, Arduino communication.
 
 **server**: Script aggraigates server data, possible caching.
+
 
 Spec:
 - grabs stock data.
