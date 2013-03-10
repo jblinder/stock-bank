@@ -13,4 +13,9 @@ class Device
   {
      port.write("BAM! DATA! iu0921jrfeawr;kDSAK:FA");
   }
+  
+  void sendStock(String name, String price) 
+  {
+     port.write(name + "Share Price " + price);
+  }
 }
