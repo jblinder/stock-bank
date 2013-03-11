@@ -9,6 +9,8 @@ import org.json.*;
 import processing.serial.*;
 import controlP5.*;
 
+ControlP5 cp5;
+
 Net net;
 Gui gui;
 Profile profile;
@@ -18,8 +20,10 @@ void setup()
 {
   size(800, 600);
 
+  cp5 = new ControlP5(this);
+
   net = new Net();
-  gui = new Gui(this);
+  gui = new Gui(this, cp5);
   profile = new Profile();
   device = new Device(this);
   

@@ -1,14 +1,20 @@
-ControlP5 cp5;
+class Frame{
+   int x;
+   int y;
+   int width;
+   int height; 
+}
+
 class Controls implements UserInput
 {
   List<UserInput> delegates = new ArrayList<UserInput>();
-
   String textValue = "";
-  PApplet app;
+  ControlP5 app;
+  Frame frame;
 
-  Controls(PApplet p)
+  Controls(ControlP5 cp5)
   {
-    app = p;  
+    app = cp5;  
     setup();
   }
 
@@ -16,26 +22,44 @@ class Controls implements UserInput
   {
     PFont font = createFont("arial", 20);
 
-    cp5 = new ControlP5(app);
-    cp5.addTextfield("input")
+
+    /*cp5.addTextfield("input")
       .setPosition(20, 100)
         .setSize(200, 40)
           .setFont(font)
             .setFocus(true)
-              .setColor(color(255, 0, 0))
+              .setColor(color(0, 0, 0))
+              .setColorActive(color(0, 0, 0))
+               .setColorBackground(color(255, 255, 255))
                 ;
+                */
     cp5.addTextfield("textValue")
       .setPosition(20, 170)
         .setSize(200, 40)
           .setFont(createFont("arial", 20))
-            .setAutoClear(false)
+            .setValue("Add stocks here")
+            .setAutoClear(true)
+              .setColorActive(255)
+               .setColorBackground(255)
+                .setColor(color(0, 0, 0))
+                .setColorActive(color(0, 0, 0))
+               .setColorBackground(color(255, 255, 255))
+               .setColorForeground(color(0,0,0)).
+               setColorCursor(color(0,0,0))
               ;
 
-    cp5.addBang("clear")
+    cp5.addBang("add")
       .setPosition(240, 170)
         .setSize(80, 40)
           .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
             ;    
+
+   cp5.addBang("save")
+      .setPosition(340, 170)
+        .setSize(80, 40)
+          .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
+            ;    
+            
 
     textFont(font);
   }
@@ -43,7 +67,7 @@ class Controls implements UserInput
   void draw() 
   {
     fill(255);
-    text(cp5.get(Textfield.class, "input").getText(), 360, 130);
+    //text(cp5.get(Textfield.class, "input").getText(), 360, 130);
     text(textValue, 360, 180);
   }
 
@@ -65,17 +89,20 @@ class Controls implements UserInput
   {
     delegates = d;
   }
+
+
 }
 
-// CP5 methos
-// I know, bad java. Issues trying to get cp5 lib working with a custom interface.
+// Control P5 Methods
+// NOTE: Really hackish putting them outside the class, but there were issues trying to get cp5 lib working with a custom interface.
+// Apparently these callback methods need to be in PApplet
 public void input(String theText) {
   println("B");
   // automatically receives results from controller input
   println("a textfield event for controller 'input' : "+theText);
 }
 
-public void clear() 
+public void add() 
 {
   println("B");
   String[] s = {"AAPL","GOOG"};
@@ -83,4 +110,3 @@ public void clear()
   ui.enteredNewStocks(s);
   cp5.get(Textfield.class, "textValue").clear();
 }
-

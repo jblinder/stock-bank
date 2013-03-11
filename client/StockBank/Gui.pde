@@ -13,9 +13,9 @@ class Gui
   // Fonts
   PFont headerFont;
   Controls controls;
-  Gui(PApplet p)
+  Gui(PApplet p, ControlP5 c)
   {
-    controls = new Controls(p);
+    controls = new Controls(c);
     //headerFont = loadFont("fonts/lateron-48.vlw");
     //textFont(headerFont, 48);
   }
