@@ -50,7 +50,7 @@ class Net implements UserInput
   
   void enteredNewStocks(String[] stocks) 
   {
-    println("FUCK");
+    println("stocks added");
   }
 
 }

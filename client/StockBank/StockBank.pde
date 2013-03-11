@@ -40,6 +40,7 @@ void update()
     Stock s = (Stock)profile.stocks.get(0);
     gui.stockName = s.name;
     gui.stockAmount = Float.toString(s.price);
+    device.sendStock(s.name, Float.toString(s.price));
   }
 }
 
