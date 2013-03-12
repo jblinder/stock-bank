@@ -15,11 +15,13 @@ Net net;
 Gui gui;
 Profile profile;
 Device device;
-
+ String[] elements;
 void setup()
 {
   size(800, 600);
-
+  elements = { 
+    "AAPL", "GOOG", "FB"
+  };
   cp5 = new ControlP5(this);
 
   net = new Net();
@@ -27,9 +29,7 @@ void setup()
   profile = new Profile();
   device = new Device(this);
   
-  String[] elements = { 
-    "AAPL", "GOOG", "FB"
-  };
+
   String url = net.getFormattedURL(elements);
   net.getStockData(join(loadStrings(url), ""), profile);
 }

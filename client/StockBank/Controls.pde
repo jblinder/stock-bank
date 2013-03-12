@@ -11,6 +11,8 @@ class Controls implements UserInput
   String textValue = "";
   ControlP5 app;
   Frame frame;
+  
+  DropdownList dropDown;
 
   Controls(ControlP5 cp5)
   {
@@ -33,6 +35,20 @@ class Controls implements UserInput
                .setColorBackground(color(255, 255, 255))
                 ;
                 */
+   dropDown = cp5.addDropdownList("stocks")
+          .setPosition(600, 60)
+          .setHeight(50)
+          .setWidth(100)
+          .setColorBackground(255)
+              .setColorBackground(255)
+                .setColorActive(color(122,122,122))
+               .setColorBackground(color(255, 255, 255))
+               .setColorForeground(color(0,0,0))
+               .setBarHeight(15)
+               .setItemHeight(20)
+               .setColorLabel(0);
+          
+               
     cp5.addTextfield("textValue")
       .setPosition(20, 170)
         .setSize(200, 40)
@@ -109,4 +125,19 @@ public void add()
   UserInput ui = new Net();
   ui.enteredNewStocks(s);
   cp5.get(Textfield.class, "textValue").clear();
+}
+public void controlEvent(ControlEvent theEvent) {
+  // DropdownList is of type ControlGroup.
+  // A controlEvent will be triggered from inside the ControlGroup class.
+  // therefore you need to check the originator of the Event with
+  // if (theEvent.isGroup())
+  // to avoid an error message thrown by controlP5.
+
+  if (theEvent.isGroup()) {
+    // check if the Event was triggered from a ControlGroup
+    println("event from group : "+theEvent.getGroup().getValue()+" from "+theEvent.getGroup());
+  } 
+  else if (theEvent.isController()) {
+    println("event from controller : "+theEvent.getController().getValue()+" from "+theEvent.getController());
+  }
 }
