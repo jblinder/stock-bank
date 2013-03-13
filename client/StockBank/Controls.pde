@@ -11,12 +11,13 @@ class Controls implements UserInput
   String textValue = "";
   ControlP5 app;
   Frame frame;
-  
+  String[] stocks;
   DropdownList dropDown;
 
-  Controls(ControlP5 cp5)
+  Controls(ControlP5 cp5, String[] s)
   {
     app = cp5;  
+    stocks = s;
     setup();
   }
 
@@ -37,7 +38,7 @@ class Controls implements UserInput
                 */
    dropDown = cp5.addDropdownList("stocks")
           .setPosition(600, 60)
-          .setHeight(50)
+          .setHeight(100)
           .setWidth(100)
           .setColorBackground(255)
               .setColorBackground(255)
@@ -45,10 +46,13 @@ class Controls implements UserInput
                .setColorBackground(color(255, 255, 255))
                .setColorForeground(color(0,0,0))
                .setBarHeight(15)
-               .setItemHeight(20)
+               .setItemHeight(15)
                .setColorLabel(0);
+    for ( int i = 0; i < stocks.length; i++) {
+        dropDown.addItem(stocks[i],i);
+    }
           
-               
+    /*               
     cp5.addTextfield("textValue")
       .setPosition(20, 170)
         .setSize(200, 40)
@@ -76,7 +80,7 @@ class Controls implements UserInput
           .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
             ;    
             
-
+*/
     textFont(font);
   }
 
@@ -87,7 +91,7 @@ class Controls implements UserInput
     text(textValue, 360, 180);
   }
 
-
+/*
   void controlEvent(ControlEvent theEvent) 
   {
     if (theEvent.isAssignableFrom(Textfield.class)) {
@@ -97,9 +101,11 @@ class Controls implements UserInput
         );
     }
   }
-   
+   */
   void enteredNewStocks(String[] stocks)
   {}
+  
+  void selectedStock(String stock){}
   
   void addDelegates(List<UserInput> d)
   {
@@ -122,22 +128,9 @@ public void add()
 {
   println("B");
   String[] s = {"AAPL","GOOG"};
-  UserInput ui = new Net();
-  ui.enteredNewStocks(s);
+  //UserInput ui = new Net();
+  //ui.enteredNewStocks(s);
   cp5.get(Textfield.class, "textValue").clear();
 }
-public void controlEvent(ControlEvent theEvent) {
-  // DropdownList is of type ControlGroup.
-  // A controlEvent will be triggered from inside the ControlGroup class.
-  // therefore you need to check the originator of the Event with
-  // if (theEvent.isGroup())
-  // to avoid an error message thrown by controlP5.
 
-  if (theEvent.isGroup()) {
-    // check if the Event was triggered from a ControlGroup
-    println("event from group : "+theEvent.getGroup().getValue()+" from "+theEvent.getGroup());
-  } 
-  else if (theEvent.isController()) {
-    println("event from controller : "+theEvent.getController().getValue()+" from "+theEvent.getController());
-  }
-}
+

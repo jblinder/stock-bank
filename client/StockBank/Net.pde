@@ -20,8 +20,8 @@ class Net implements UserInput
         float  price = (float)item.getDouble("price");      
         Stock s = new Stock(name,price);
         stocks.add(s);
-        //println(name);
-        //println(price);
+        println(name);
+        println(price);
       }
       profile.stocks = stocks;
     } 
@@ -52,6 +52,9 @@ class Net implements UserInput
   {
     println("stocks added");
   }
-
+  
+  void selectedStock(String stock){
+    println(stock);
+  }
 }
 
