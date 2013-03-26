@@ -1,3 +1,0 @@
-
-StockBank
-StockBank.jar,core.jar,json.jar,RXTXcomm.jar,serial.jar,controlP5.jar
